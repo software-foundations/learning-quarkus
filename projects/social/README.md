@@ -96,9 +96,13 @@ curl http://localhost:8080/hello
 
 ```bash
 sudo -iu postgres
+
 createdb quarkus-social -O postgres
 psql
 \c quarkus-social
+
+# Create password for postgres: postgres
+\password
 ```
 
 # Populate Database
@@ -134,3 +138,10 @@ quarkus.datasource.jdbc.max-size=16
 ```bash
 ./mvnw quarkus:add-extension -Dextension="jdbc-postgresql"
 ```
+
+# Tips
+
+- Use <code>PanacheEntityBase</code> instead of <code>PanacheEntity</code>
+- <code>PanacheEntityBase</code> is more customizable
+- Use <code>@Transactional</code> in Request handler which mades db operations
+- <code>CTRL + ALT + V</code> to create a variable in intelij
