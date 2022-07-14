@@ -91,3 +91,46 @@ curl http://localhost:8080/hello
 ```bash
 ./mvnw dependency:resolve
 ```
+
+# Create Database
+
+```bash
+sudo -iu postgres
+createdb quarkus-social -O postgres
+psql
+\c quarkus-social
+```
+
+# Populate Database
+
+```sql
+CREATE TABLE USERS (
+    id bigserial not null primary key,
+    name varchar (100) not null,
+    age integer not null
+);
+```
+- List tables
+
+```bash
+\d
+```
+
+# Setup Database in application.properties
+
+- <a href="https://quarkus.io/guides/datasource">quarkus guides datasource jdbc</a>
+
+```
+quarkus.datasource.db-kind=postgresql 
+quarkus.datasource.username=quarkus
+quarkus.datasource.password=quarkus
+
+quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/quarkus-social
+quarkus.datasource.jdbc.max-size=16
+```
+
+# Install postgresl driver with maven
+
+```bash
+./mvnw quarkus:add-extension -Dextension="jdbc-postgresql"
+```
