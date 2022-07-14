@@ -1,4 +1,4 @@
-package io.github.brunoconde07.quarkussocial.rest.dto;
+package io.github.brunoconde07.quarkussocial.dto;
 
 public class CreateUserRequest {
 	private String name;

@@ -1,6 +1,6 @@
-package io.github.brunoconde07.quarkussocial.rest;
+package io.github.brunoconde07.quarkussocial;
 
-import io.github.brunoconde07.quarkussocial.rest.dto.CreateUserRequest;
+import io.github.brunoconde07.quarkussocial.dto.CreateUserRequest;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
