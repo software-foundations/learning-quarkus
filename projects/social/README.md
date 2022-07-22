@@ -35,6 +35,7 @@ Would you like some code to start (yes), or just an empty Quarkus project (no): 
 ```bash
 cd quarkus-social
 mvn compile quarkus:dev
+./mvnw compile quarkus:dev
 ```
 
 ```console
