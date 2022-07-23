@@ -3,6 +3,7 @@ package io.github.brunoconde07.quarkussocial;
 import io.github.brunoconde07.quarkussocial.domain.model.User;
 import io.github.brunoconde07.quarkussocial.domain.repository.UserRepository;
 import io.github.brunoconde07.quarkussocial.dto.CreateUserRequest;
+import io.github.brunoconde07.quarkussocial.dto.ResponseError;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import org.h2.command.ddl.CreateUser;
@@ -40,11 +41,9 @@ public class UserResource {
 
 		if ( !violations.isEmpty() ) {
 
-			ConstraintViolation<CreateUserRequest> error = violations.stream().findAny().get();
+			ResponseError responseError = ResponseError.createFromValidation(violations);
 
-			String errorMessage = error.getMessage();
-
-			return Response.status(400).entity(errorMessage).build();
+			return Response.status(400).entity(responseError).build();
 		}
 
 		User user = new User();
