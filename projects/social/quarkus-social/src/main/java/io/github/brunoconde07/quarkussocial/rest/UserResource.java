@@ -1,12 +1,10 @@
-package io.github.brunoconde07.quarkussocial;
+package io.github.brunoconde07.quarkussocial.rest;
 
 import io.github.brunoconde07.quarkussocial.domain.model.User;
 import io.github.brunoconde07.quarkussocial.domain.repository.UserRepository;
-import io.github.brunoconde07.quarkussocial.dto.CreateUserRequest;
-import io.github.brunoconde07.quarkussocial.dto.ResponseError;
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import io.github.brunoconde07.quarkussocial.rest.dto.CreateUserRequest;
+import io.github.brunoconde07.quarkussocial.rest.dto.ResponseError;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;
-import org.h2.command.ddl.CreateUser;
 
 
 import javax.inject.Inject;

@@ -1,4 +1,4 @@
-package io.github.brunoconde07.quarkussocial.dto;
+package io.github.brunoconde07.quarkussocial.rest.dto;
 
 import lombok.Data;
 import lombok.Getter;

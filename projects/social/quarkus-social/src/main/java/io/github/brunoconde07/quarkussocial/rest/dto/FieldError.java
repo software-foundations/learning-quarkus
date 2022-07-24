@@ -1,4 +1,4 @@
-package io.github.brunoconde07.quarkussocial.dto;
+package io.github.brunoconde07.quarkussocial.rest.dto;
 
 public class FieldError {
 
