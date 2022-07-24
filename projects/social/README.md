@@ -160,3 +160,5 @@ quarkus.datasource.jdbc.max-size=16
 - <code>ALT + INSERT</code> to create getters and setters
 - <code>ALT + INSERT</code> to create constructor
 - <code>ALT ENTER</code> to create field for Parameter
+- <code>CTRL + B</code> to show the method parameters
+- <code>ALT SHIFTB</code> to show move selected code
