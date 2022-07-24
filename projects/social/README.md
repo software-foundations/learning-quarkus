@@ -73,7 +73,18 @@ curl http://localhost:8080/hello
     <type>pom</type>
 </dependency>
 ```
-- Copy this to dependencies in pom.xml
+
+- lombok
+```xml
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.24</version>
+    <scope>provided</scope>
+</dependency>
+```
+
+- Copy these to dependencies in pom.xml
 
 # Adding dependencies on quarkus project quarkus plugin
 
