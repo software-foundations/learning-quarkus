@@ -156,6 +156,7 @@ quarkus.datasource.jdbc.max-size=16
 - Use <code>PanacheEntityBase</code> instead of <code>PanacheEntity</code>
 - <code>PanacheEntityBase</code> is more customizable
 - Use <code>@Transactional</code> in Request handler which mades db operations
-- <code>CTRL + ALT + V</code> to create a variable in intelij
+- <code>CTRL + ALT + V</code> to create a variable
 - <code>ALT + INSERT</code> to create getters and setters
 - <code>ALT + INSERT</code> to create constructor
+- <code>ALT ENTER</code> to create field for Parameter
