@@ -89,7 +89,7 @@ public class PostResource {
 
             return Response
                     .status(Response.Status.BAD_REQUEST)
-                    .entity("Inexistent FollowerId")
+                    .entity("Non existent followerId")
                     .build();
 
         }
