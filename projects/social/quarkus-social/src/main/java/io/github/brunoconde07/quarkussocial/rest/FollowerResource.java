@@ -5,12 +5,16 @@ import io.github.brunoconde07.quarkussocial.domain.model.User;
 import io.github.brunoconde07.quarkussocial.domain.repository.FollowerRepository;
 import io.github.brunoconde07.quarkussocial.domain.repository.UserRepository;
 import io.github.brunoconde07.quarkussocial.rest.dto.FollowerRequest;
+import io.github.brunoconde07.quarkussocial.rest.dto.FollowerResponse;
+import io.github.brunoconde07.quarkussocial.rest.dto.FollowersPerUseResponse;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Path("/users/{userId}/followers")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -64,6 +68,34 @@ public class FollowerResource {
             repository.persist(entity);
         }
 
-        return Response.noContent().build();
+        return Response.status(Response.Status.NO_CONTENT).build();
     }
+
+    @GET
+    public Response listFollowers( @PathParam("userId") Long userId ) {
+
+        User user = userRepository.findById(userId);
+
+        if ( user == null ) {
+
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        List<Follower> list = repository.findByUser(userId);
+
+        FollowersPerUseResponse responseObject = new FollowersPerUseResponse();
+
+        responseObject.setFollowersCount(list.size());
+
+        // ::new makes pass the reference of the constructor of the FollowerResponse to
+        // the argument of the map method
+        List<FollowerResponse> followerList = list.stream()
+                .map(FollowerResponse::new)
+                .collect(Collectors.toList());
+
+        responseObject.setContent(followerList);
+
+        return Response.ok(responseObject).build();
+    }
+
 }
