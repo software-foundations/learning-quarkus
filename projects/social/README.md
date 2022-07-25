@@ -168,7 +168,7 @@ quarkus.datasource.jdbc.max-size=16
 - <code>CTRL + B</code> to show the method parameters
 - <code>ALT SHIFT B</code> to show move selected code
 - <code>ALT + ENTER + Create Test</code> in the class to create tests for it
-- 
+- <code>CTRL + SHIFT + F10</code> to run a specific method in a test class
 
 # Advices
 
@@ -176,8 +176,11 @@ quarkus.datasource.jdbc.max-size=16
 
 # Test environment (h2)
 
-- Autocreate tables just reading the entities that are mapped
+- The application does not need to be running
 
+- The test run the application it in background by itself
+
+- Autocreate tables just reading the entities that are mapped
 
 - application.properties
 
