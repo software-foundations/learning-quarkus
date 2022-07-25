@@ -162,3 +162,7 @@ quarkus.datasource.jdbc.max-size=16
 - <code>ALT ENTER</code> to create field for Parameter
 - <code>CTRL + B</code> to show the method parameters
 - <code>ALT SHIFTB</code> to show move selected code
+
+# Advices
+
+- Delete must receive id in queryParam. Body and path Param are not allowed
