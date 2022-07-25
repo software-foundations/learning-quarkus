@@ -151,6 +151,11 @@ quarkus.datasource.jdbc.max-size=16
 ./mvnw quarkus:add-extension -Dextension="jdbc-postgresql"
 ```
 
+# Default Environments
+
+- <a href="https://quarkus.io/guides/config-reference#default-profiles">Documentation</a>
+- By default, there are dev, test and prod environments
+
 # Tips
 
 - Use <code>PanacheEntityBase</code> instead of <code>PanacheEntity</code>
@@ -161,8 +166,28 @@ quarkus.datasource.jdbc.max-size=16
 - <code>ALT + INSERT</code> to create constructor
 - <code>ALT ENTER</code> to create field for Parameter
 - <code>CTRL + B</code> to show the method parameters
-- <code>ALT SHIFTB</code> to show move selected code
+- <code>ALT SHIFT B</code> to show move selected code
+- <code>ALT + ENTER + Create Test</code> in the class to create tests for it
+- 
 
 # Advices
 
 - Delete must receive id in queryParam. Body and path Param are not allowed
+
+# Test environment (h2)
+
+- Autocreate tables just reading the entities that are mapped
+
+
+- application.properties
+
+```.properties
+%test.quarkus.datasource.db-kind=h2
+%test.quarkus.datasource.username=sa
+%test.quarkus.datasource.password=sa
+
+%test.quarkus.datasource.jdbc.url=jdbc:h2:mem:quarkus-social
+%test.quarkus.datasource.jdbc.max-size=16
+%test.quarkus.hibernate-orm.database.generation=drop-and-create
+%test.quarkus.hibernate-orm.log.sql=true
+```
