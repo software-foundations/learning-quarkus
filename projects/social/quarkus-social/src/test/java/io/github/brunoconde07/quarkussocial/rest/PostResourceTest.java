@@ -77,4 +77,28 @@ class PostResourceTest {
                 .then()
                 .statusCode(404);
     }
+
+    @Test
+    @DisplayName("should return 404 when user does not exist")
+    public void listPostUserNotFoundTest() {
+
+    }
+
+    @Test
+    @DisplayName("should return 400 when followerId header does not is absent")
+    public void listPostFollowerHeaderNotSendTest() {
+
+    }
+
+    @Test
+    @DisplayName("should return 403 when follower is not a follower")
+    public void listPostNotAFollowerTest() {
+
+    }
+
+    @Test
+    @DisplayName("should return posts")
+    public void listPostsTest() {
+
+    }
 }
