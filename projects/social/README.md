@@ -169,6 +169,7 @@ quarkus.datasource.jdbc.max-size=16
 - <code>ALT SHIFT B</code> to show move selected code
 - <code>ALT + ENTER + Create Test</code> in the class to create tests for it
 - <code>CTRL + SHIFT + F10</code> to run a specific method in a test class
+- <code>CTRL + P</code> to show the signature
 
 # Advices
 
