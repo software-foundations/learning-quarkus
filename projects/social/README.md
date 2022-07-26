@@ -208,6 +208,7 @@ quarkus.datasource.jdbc.max-size=16
 
 # Swagger
 - http://localhost:8080/q/swagger-ui
+- The documentation can be set with annotations or in application.properties
 ```properties
 quarkus.swagger-ui.always-include=true
 ```
