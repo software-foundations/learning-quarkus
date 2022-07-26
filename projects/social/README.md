@@ -84,6 +84,14 @@ curl http://localhost:8080/hello
 </dependency>
 ```
 
+- swagger
+```xml
+<dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
+    </dependency>
+```
+
 - Copy these to dependencies in pom.xml
 
 # Adding dependencies on quarkus project quarkus plugin
@@ -97,6 +105,7 @@ curl http://localhost:8080/hello
 ./mvnw quarkus:add-extension -Dextensions="hibernate-validator,hibernate-orm,hibernate-orm-panache"
 ./mvnw quarkus:add-extension -Dextensions="jdbc-h2"
 ./mvnw quarkus:add-extension -Dextensions="resteasy-jsonb"
+./mvnw quarkus:add-extension -Dextensions="quarkus-smallrye-openapi"
 ```
 
 - Reload dependencies
@@ -195,4 +204,10 @@ quarkus.datasource.jdbc.max-size=16
 %test.quarkus.datasource.jdbc.max-size=16
 %test.quarkus.hibernate-orm.database.generation=drop-and-create
 %test.quarkus.hibernate-orm.log.sql=true
+```
+
+# Swagger
+- http://localhost:8080/q/swagger-ui
+```properties
+quarkus.swagger-ui.always-include=true
 ```
