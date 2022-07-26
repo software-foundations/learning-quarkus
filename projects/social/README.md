@@ -212,3 +212,35 @@ quarkus.datasource.jdbc.max-size=16
 ```properties
 quarkus.swagger-ui.always-include=true
 ```
+
+# Package the application
+
+- It generates the jar file
+
+- It takes the prod env by default
+
+```bash
+./mvnw clean package -DskipTests
+```
+
+```console
+[INFO] Building jar: /home/bruno/Documents/dev/learning-quarkus/projects/social/quarkus-social/target/quarkus-social-1.0.jar
+[INFO] 
+[INFO] --- quarkus-maven-plugin:2.10.2.Final:build (default) @ quarkus-social ---
+[INFO] [org.hibernate.Version] HHH000412: Hibernate ORM core version 5.6.9.Final
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 2744ms
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  31.894 s
+[INFO] Finished at: 2022-07-26T13:04:46-03:00
+[INFO] ------------------------------------------------------------------------
+```
+
+- Execute the jar file
+
+```bash
+java -jar ./target/quarkus-app/quarkus-run.jar
+```
+
+- Test the application: <code>http://localhost:8080</code>
