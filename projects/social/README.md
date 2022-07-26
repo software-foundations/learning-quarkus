@@ -244,3 +244,51 @@ java -jar ./target/quarkus-app/quarkus-run.jar
 ```
 
 - Test the application: <code>http://localhost:8080</code>
+
+# Setting up quarkus with docker
+
+- Creating an image from a Dockerfile
+
+```bash
+sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus-social:1.0 .
+```
+
+```bash
+sudo docker images
+```
+
+- Run a container from the image
+
+- Comment the GLOBAL in applications.properties
+
+- remove %.test from TEST in application.properties
+
+- Because we will use the in memory database to avoid this
+
+```console
+WARN  [org.hib.eng.jdb.env.int.JdbcEnvironmentInitiator] (JPA Startup Thread: <default>) HHH000342: Could not obtain connection to query metadata: org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+```
+
+- Then, packaging ang creating image should be done again
+
+```bash
+./mvnw clean package -DskipTests
+
+# remove the older image
+sudo docker image ls
+sudo docker image rm <image id>
+sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus-social:1.0 .
+```
+
+- Then, run the container
+
+```bash
+sudo docker run -i --rm -p 8080:8080 --name quarkus-social-container quarkus-social:1.0 
+```
+
+- Stop the container
+
+```bash
+sudo docker container ls
+sudo docker container stop <container id>
+```
