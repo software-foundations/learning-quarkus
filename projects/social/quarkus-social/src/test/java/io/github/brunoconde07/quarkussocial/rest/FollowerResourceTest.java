@@ -31,6 +31,8 @@ class FollowerResourceTest {
 
     Long userId;
 
+    Long followerId;
+
     @BeforeEach
     @Transactional
     void setUp() {
@@ -45,6 +47,17 @@ class FollowerResourceTest {
         userRepository.persist(user);
 
         userId = user.getId();
+
+        // default follower of the tests
+        User follower = new User();
+
+        follower.setName("Mary");
+
+        follower.setAge(35);
+
+        userRepository.persist(follower);
+
+        followerId = follower.getId();
     }
 
     @Test
@@ -88,4 +101,21 @@ class FollowerResourceTest {
                 .statusCode(Response.Status.NOT_FOUND.getStatusCode());
     }
 
+    @Test
+    @DisplayName("should follow user")
+    public void followUserTest() {
+
+        FollowerRequest body = new FollowerRequest();
+
+        body.setFollowerId(followerId);
+
+        given()
+                .contentType(ContentType.JSON)
+                .body(body)
+                .pathParam("userId", userId)
+                .when()
+                .put()
+                .then()
+                .statusCode(Response.Status.NO_CONTENT.getStatusCode());
+    }
 }
